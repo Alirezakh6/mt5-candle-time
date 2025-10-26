@@ -1,5 +1,5 @@
-//|                         Candle Timer (Simple) - MT5              |
-//|                 Shows time remaining for current candle          |
+#                        Candle Timer - MT5              
+#                Shows time remaining for current candle          
 #property version   "1.00"
 #property indicator_chart_window
 #property indicator_plots 0
@@ -57,8 +57,8 @@ void OnTimer()
    double last_price = iClose(_Symbol, _Period, 0);
    datetime bar_time = iTime(_Symbol, _Period, 0);
 
-   if(!ObjectMove(0, "CandleTimer", 0, bar_time, last_price))
-   {
+   if(!ObjectMove(0, "CandleTimer", 0, bar_time + 30, last_price))
+{
       ObjectSetInteger(0, "CandleTimer", OBJPROP_CORNER, CORNER_RIGHT_UPPER);
       ObjectSetInteger(0, "CandleTimer", OBJPROP_XDISTANCE, 20);
       ObjectSetInteger(0, "CandleTimer", OBJPROP_YDISTANCE, 20);
